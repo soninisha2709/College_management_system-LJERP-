@@ -1,0 +1,48 @@
+{{>paneltheme}}
+<div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h1>Students List</h1>
+                                            <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
+                                        </div>
+                                         <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table ">
+                                                <thead>
+          <tr>
+            <th>Enrollment No</th>
+            <th>Student Name</th>
+            <th>Student Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+        {{# each student}}
+        <tbody>
+                <tr>
+                    <td>{{this.enroll}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.address}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.email}}</td>
+                    <td>
+                        &nbsp;
+                       <a href="/admin/editStudent/:{{this.enroll}}"><i class="ti-pencil-alt text-primary"></i></a> &nbsp; 
+                        <a href="/admin/adminStudentDelete/:{{this.enroll}}" onclick="deleteAlert()"><i class="ti-trash text-danger"></i></a>&nbsp;
+                        <a href="/admin/stdSingleView/:{{this.enroll}}"><i class="ti-control-play text-success"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+        {{/each}}     
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

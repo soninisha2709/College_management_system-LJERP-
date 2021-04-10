@@ -1,0 +1,60 @@
+{{>paneltheme}}
+
+<div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    
+
+<!-- Authentication card start -->
+                    <div class=" signup-card card-block auth-body mr-auto ml-auto">
+                        <form class="md-float-material" action="/admin/updateStudent/:{{std.enroll}}" method="POST">
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class=" text-left text-primary">Edit Student</h3>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="text-danger alert-danger"><h4><b>{{msg}}</b></h4></div><br>
+                                <div class="input-group">
+                                    <input type="number" name="eno" class="form-control"  value={{std.enroll}}>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="sname" class="form-control" value={{std.name}}>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text"  name="saddress" maxlength="500" class=" form-control" value={{std.address}}>
+                                </div>
+                                 <div class="form-group">
+                                    <input type="phone" name="sphone" class="form-control" value={{std.phone}}>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="semail" class="form-control" value={{std.email}}>
+                                </div>                                
+                               
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" value={{std.password}}>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="cpassword" class="form-control" value={{std.cpassword}}>
+                                </div>
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary btn-md waves-effect text-center m-b-20" value="Update">
+                                    </div>
+                                </div>
+                                
+                             
+                            </div>
+                        </form>
+                        <!-- end of form -->
+                    </div>
+                    <!-- Authentication card end -->
+   
+    </div>
+    </div>
+    </div>
+    </div>
+    </body>
+    </html>

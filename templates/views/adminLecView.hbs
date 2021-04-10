@@ -1,0 +1,46 @@
+{{>paneltheme}}
+<div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                   
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h1>Subject Faculty Allocation List &nbsp;&nbsp;&nbsp;<a href="/admin/addLec"><button class="btn btn-md waves-effect text-center m-b-20 btn-light"><i class="ti-plus"></i></button></a></h1> 
+                                            <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
+                                        </div>
+                                         <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table ">
+                                                <thead>
+          <tr>
+            
+            <th>Class ID</th>
+            <th>Faculty Name</th>
+            <th>Subject name</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+        {{# each lec}}
+        <tbody>
+                <tr>
+                    
+                    <td>{{this.classid}}</td>
+                    <td>{{this.fid}}</td>
+                    <td>{{this.subid}}</td>
+                   
+                    <td>
+                        &nbsp;
+                       <a href="/admin/EditLec/:{{this._id}}"><i class="ti-pencil-alt text-primary"></i></a> &nbsp; 
+                        <a href="/admin/deleteLec/:{{this._id}}" onclick="deleteAlert()"><i class="ti-trash text-danger"></i></a>&nbsp;
+                    </td>
+                </tr>
+                </tbody>
+        {{/each}}     
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

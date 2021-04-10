@@ -1,0 +1,71 @@
+{{>paneltheme}}
+<div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+        <!-- Container-fluid starts -->
+        
+                    <!-- Authentication card start -->
+                    <div class="signup-card card-block auth-body mr-auto ml-auto">
+                        <form class="md-float-material" action="" method="POST">
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class=" text-left text-primary">ADD Lecture</h3>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="text-danger alert-danger"><h4><b>{{msg}}</b></h4></div><br>
+                               
+                                 
+                                <div class="input-group">
+                                    
+                                    <select name='classId' class="form-control">
+                                        <option>Select Class</option>
+                                        {{# each class}}
+                                        <option value="{{this.class_id}}">{{this.class_id}}</option>
+                                         {{/each}}
+                                    </select>
+                                   
+                                </div>
+                                <div class="input-group">
+                                   
+                                    <select name='fId' class="form-control">
+                                        <option>Select Faculty</option>
+                                         {{# each staff}}
+                                        <option value="{{this.fid}}">{{this.fid}}</option>
+                                         {{/each}}
+                                    </select>
+                                   
+                                </div>
+                                <div class="input-group">
+                                   
+                                    <select name='sId' class="form-control">
+                                        <option>Select subject</option>
+                                         {{# each subject }}
+                                        <option value="{{this.subid}}">{{this.subid}}</option>
+                                         {{/each}}
+                                    </select>
+                                   
+                                </div>
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" value="ADD">
+                                    </div>
+                                </div>
+                              
+                                
+                               
+                             
+                            </div>
+                        </form>
+                        <!-- end of form -->
+                    </div>
+                    <!-- Authentication card end -->
+                </div>
+                <!-- end of col-sm-12 -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container-fluid -->
+</div>
