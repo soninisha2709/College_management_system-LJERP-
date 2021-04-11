@@ -6,8 +6,8 @@ const session = require('express-session');
 router.use(session({
     secret:'admin',
     name:'uniqueSessionId',
-    resave:true,
-    saveUninitialized:false
+    resave:false,
+    saveUninitialized:true
     
 }));
 
@@ -19,7 +19,7 @@ const Subject = require('../src/models/subjectmodule');
 const Semester = require('../src/models/semmodule');
 const ClassTable = require('../src/models/clgclassmodule');
 const Lecture = require('../src/models/sub-class-allocmodule');
-
+const StudentDetails = require('../src/models/studentDetails');
 
 //-------------------------------------------------------------------------------------------
 router.get('/',(req, res) =>{
@@ -61,7 +61,7 @@ router.get('/logout',(req,res)=>{
 //----------------------------------student CRUD-------------------------------------
 router.get('/adminStudentView',(req,res)=>{
   if(req.session.isAuth){  
-      Student.find({},(err,data)=>{
+      Student.find({},null,{sort:{enroll:1}},(err,data)=>{
         if(err){
           res.status(400).send(err);
         }
@@ -171,7 +171,27 @@ router.get('/stdSingleView/:eno',(req,res)=>{
     res.redirect('/admin/')
   }
 });
-
+//--------------------------------Student class details CRUD------------------------
+   router.get('/adminStudentClassView',(req,res)=>{
+    if(req.session.isAuth){
+      try {
+          StudentDetails.find({},(err,data)=>{
+            if(err){
+              res.status(400).send(err);
+            }
+            else{
+              res.status(200).render('adminStudentClassView',{student:data,user:req.session.user})
+              //console.log('data sent...');
+              //console.log('student details:',data);
+            }
+          });
+      } catch (error) {
+          res.status(400).send(error);
+      }}
+      else{
+        res.redirect('/admin/')
+      }
+    });
 //------------------------------staff CRUD----------------------------------------------
 router.get('/adminStaffView',(req,res)=>{
   if(req.session.isAuth){
@@ -403,7 +423,7 @@ router.get('/deleteCourse/:id',(req,res)=>{
 
 router.get('/adminSubjectView',(req,res)=>{
   if(req.session.isAuth){
-  Subject.find({},null,{sort:{subid:1}},(err,data)=>{
+  Subject.find({},null,{sort:{sid:1}},(err,data)=>{
     if(err){
       res.status(400).send(err)
     }
